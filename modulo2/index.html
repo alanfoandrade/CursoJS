@@ -1,0 +1,70 @@
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Curso JS</title>
+</head>
+
+<body>
+    <div>
+        <div id="app">
+            <input type="text" name="nome" id="input1" placeholder="Nome" />
+            <input type="text" name="sobrenome" id="input2" placeholder="Sobrenome" />
+            <input type="text" name="email" id="input3" placeholder="E-mail" class="login" />
+            <input type="text" name="endereco" id="input4" placeholder="Endereco" />
+
+            <button class="botao">Adicionar</button>
+            <br />
+        </div>
+
+        <div class="box"></div>
+    </div>
+    <script>
+        var inputElement1 = document.getElementById('input3');
+        var inputElement2 = document.getElementsByTagName('input')[3];
+        var inputElement3 = document.getElementsByClassName('login')[0];
+        var inputElement4 = document.querySelector('div#app input[name=email]');
+        var inputElement5 = document.querySelectorAll('input');
+
+        console.log(inputElement1);
+        console.log(inputElement2);
+        console.log(inputElement3);
+        console.log(inputElement4);
+        console.log(inputElement5);
+
+        //seleciona classe usando .
+        var btnElement = document.querySelector('button.botao');
+
+        //emite alerta com o texto contido no campo email, ao clicar botao
+        btnElement.onclick = function () {
+            var text = inputElement4.value;
+            alert(text);
+        };
+
+        // <a href="http://www.globo.com">Acessar Globo</a>
+        var linkElement = document.createElement('a');
+        linkElement.setAttribute('href', 'http://www.globo.com');
+        linkElement.setAttribute('title', 'Site da Globo');
+
+        //adiciona textElement em linkElement
+        var textElement = document.createTextNode('Acessar Globo');
+        linkElement.appendChild(textElement);
+
+        //adiciona o link no corpo da div app
+        var contElement = document.querySelector('#app');
+        contElement.appendChild(linkElement);
+
+        //remove campo input por id
+        var removeInput = document.querySelector('#input4');
+        contElement.removeChild(removeInput);
+
+        var boxElement = document.querySelector('.box');
+
+        //edita estilo da caixa da classe box
+        boxElement.style.width = 100;
+        boxElement.style.height = 50;
+        boxElement.style.backgroundColor = 'f00';
+    </script>
+</body>
+
+</html>

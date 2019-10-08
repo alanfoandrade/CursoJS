@@ -1,0 +1,45 @@
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Desafio Módulo 2</title>
+</head>
+
+<body>
+    <div id="app">
+        <input type="text" name="nome" placeholder="Insira seu nome">
+        <button class="botao">Adicionar</button>
+
+        <ul id="list">
+
+        </ul>
+
+    </div>
+
+    <script>
+        var container = document.querySelector('#list'); //busca a tag com id="list"
+        var inputElement = document.getElementsByName('nome')[0]; //primeiro elemento da resposta
+        var btnElement = document.querySelector('button.botao'); //button da classe botao
+
+        var nomes = ["Diego", "Gabriel", "Lucas"];
+        for (nome of nomes) {
+            addName(nome);
+        }
+
+        btnElement.onclick = () => {
+            addName(inputElement.value);
+            inputElement.value = "";
+        }
+
+        function addName(nome) {
+            var liElement = document.createElement('li'); //cria uma lista com bullets
+            var nameElement = document.createTextNode(nome); //cria um texto
+
+
+            liElement.appendChild(nameElement); //adiciona o texto a lista
+            container.appendChild(liElement); //adiciona a lista a tag com id="list"
+        }
+    </script>
+</body>
+
+</html>

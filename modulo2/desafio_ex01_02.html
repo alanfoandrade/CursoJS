@@ -1,0 +1,42 @@
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Desafio Módulo 2</title>
+</head>
+
+<body>
+    <div id="app">
+        <button class="botao">Click Me</button>
+    </div>
+
+    <script>
+        var btnElement = document.querySelector('button.botao');
+
+        btnElement.onclick = function () {
+            var redBox = document.createElement('div');
+
+            redBox.style.width = 100;
+            redBox.style.height = 100;
+            redBox.style.backgroundColor = 'f00';
+            redBox.style.marginBottom = 5;
+            redBox.style.marginTop = 5;
+
+            redBox.onmouseover = () => redBox.style.backgroundColor = getRandomColor();
+
+            var container = document.querySelector('#app');
+            container.appendChild(redBox);
+        }
+
+        function getRandomColor() {
+            var letters = "0123456789ABCDEF";
+            var color = "#";
+            for (var i = 0; i < 6; i++) {
+                color += letters[Math.floor(Math.random() * 16)];
+            }
+            return color;
+        }
+    </script>
+</body>
+
+</html>
